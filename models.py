@@ -2,7 +2,7 @@ from datetime import datetime
 from enum import Enum
 from typing import Optional
 
-from pydantic import validator
+from pydantic import validator, BaseModel
 from sqlmodel import Field, Session, SQLModel, create_engine, Relationship
 
 
@@ -14,6 +14,16 @@ class TaskBase(SQLModel):
 
 class CreateTask(TaskBase):
     category_name: str | None = None
+
+
+class UpdateTask(BaseModel):
+    title: str | None = None
+    description: str | None = None
+    due_date: datetime | None = None
+    completed: bool | None = None
+    category_name: str | None = None
+
+
 
 
 class Task(TaskBase, table=True):

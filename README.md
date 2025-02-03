@@ -33,7 +33,7 @@ CREATE TABLE categories (
          "description": "string",
          "due_date": "datetime (optional)",
          "completed": "boolean (default: false)",
-         "category_id": "integer (optional)"
+         "category_name": "string (optional)"
      }
      ```
 
@@ -41,9 +41,9 @@ CREATE TABLE categories (
    - GET `/tasks/`
    - Query Parameters:
      - `completed`: boolean (filter by completion status)
-     - `category_id`: integer (filter by category)
-     - `due_date_from`: datetime (filter tasks due after this date)
-     - `due_date_to`: datetime (filter tasks due before this date)
+     - `category_name`: string (filter by category)
+     - `due_date_from`: date (filter tasks due after this date)
+     - `due_date_to`: date (filter tasks due before this date)
 
 3. **Get Single Task**
    - GET `/tasks/{task_id}`
@@ -57,7 +57,7 @@ CREATE TABLE categories (
          "description": "string",
          "due_date": "datetime",
          "completed": "boolean",
-         "category_id": "integer"
+         "category_name": "string"
      }
      ```
 
@@ -90,11 +90,10 @@ CREATE TABLE categories (
 1. Input validation (e.g., title cannot be empty)
 2. Proper error handling (404 for missing resources)
 3. Sorting options for GET /tasks/ endpoint
-4. Pagination for task lists
-5. Database constraints (e.g., unique category names)
+4. Database constraints (e.g., unique category names)
 
 ### Tips for Implementation
-1. Use SQLAlchemy ORM for database interactions
+1. Use SQL model for database interactions
 2. Implement proper Pydantic models for request/response validation
 3. Consider using Alembic for database migrations
 4. Add created_at/updated_at timestamps for better tracking
