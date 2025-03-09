@@ -86,23 +86,8 @@ CREATE TABLE categories (
   - A category can have many tasks (through `category_id` foreign key)
   - A task belongs to 0 or 1 category
 
-### Suggested Features to Implement
-1. Input validation (e.g., title cannot be empty)
-2. Proper error handling (404 for missing resources)
-3. Sorting options for GET /tasks/ endpoint
-4. Database constraints (e.g., unique category names)
 
-### Tips for Implementation
-1. Use SQL model for database interactions
-2. Implement proper Pydantic models for request/response validation
-3. Consider using Alembic for database migrations
-4. Add created_at/updated_at timestamps for better tracking
-5. Test your API endpoints with different scenarios:
-   - Creating tasks with/without categories
-   - Updating completion status
-   - Filtering by multiple criteria
-
-This structure gives you a good foundation to practice:
+This structure gives a good foundation to practice:
 - CRUD operations
 - Database relationships
 - API endpoint design
